@@ -1,0 +1,344 @@
+@import url("https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;500;600;700&display=swap");
+
+:root {
+  --header-height: 3.5rem;
+
+  --black-color: hsl(0, 0%, 0%);
+  --black-color-light: hsl(0, 0%, 40%);
+  --white-color: hsl(0, 0%, 95%);
+  --title-color: hsl(0, 0%, 0%);
+  --text-color: hsl(0, 0%, 35%);
+  --body-color: hsl(0, 0%, 87%);
+ 
+  --body-font: "Bai Jamjuree", sans-serif;
+  --big-font-size: 2.5rem;
+  --h1-font-size: 1.75rem;
+  --h2-font-size: 1.25rem;
+  --h3-font-size: 1.125rem;
+  --normal-font-size: .938rem;
+  --small-font-size: .813rem;
+  --smaller-font-size: .75rem;
+
+  --font-regular: 400;
+  --font-medium: 500;
+  --font-semi-bold: 600;
+  --font-bold: 700;
+
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+@media screen and (min-width: 1150px) {
+  :root {
+    --biggest-font-size: 4.5rem;
+    --h1-font-size: 3rem;
+    --h2-font-size: 1.5rem;
+    --h3-font-size: 1.25rem;
+    --normal-font-size: 1rem;
+    --small-font-size: .875rem;
+    --smaller-font-size: .813rem;
+  }
+}
+
+/*---*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  background-color: var(--body-color);
+  color: var(--text-color);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--title-color);
+  font-weight: var(--font-bold);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.container {
+  max-width: 1120px;
+  margin-inline: 1.5rem;
+}
+
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.section {
+  padding-block: 4rem 2rem;
+}
+
+.section__title-1,
+.section__title-2 {
+  position: relative;
+  font-size: var(--h1-font-size);
+  width: max-content;
+  margin: .75rem auto 2rem;
+}
+
+.section__title-1 span,
+.section__title-2 span {
+  z-index: 5;
+  position: relative;
+  padding: 6px;
+  border-radius: 3px;
+
+  background: linear-gradient(90deg,
+      hsla(14, 78%, 56%, 0.3),
+      hsla(14, 98%, 50%, 0));
+}
+
+.section__title-2::after {
+  top: initial;
+  bottom: -4px;
+}
+
+
+.header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: var(--body-color);
+  z-index: var(--z-fixed);
+  transition: box-shadow .4s;
+}
+
+.nav {
+  position: relative;
+  height: var(--header-height);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav__logo {
+  display: flex;
+  column-gap: .5rem;
+  align-items: center;
+  font-weight: var(--font-semi-bold);
+  color: var(--title-color);
+}
+
+.nav__logo-circle {
+  width: 36px;
+  height: 36px;
+  background-color: var(--black-color);
+  color: var(--white-color);
+  display: grid;
+  place-items: center;
+  border-radius: 40%;
+}
+
+.nav__toggle {
+  color: var(--black-color);
+  font-size: 1.55rem;
+  cursor: pointer;
+}
+
+/* Mobile */
+@media screen and (max-width: 1150px) {
+  .nav__menu {
+    position: fixed;
+    top: -100%;
+    left: 0;
+    background-color: hsla(0, 0%, 0%, .75);
+    width: 100%;
+    padding-block: 1.8rem 5rem;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    transition: top .6s;
+  }
+}
+
+.nav__title,
+.nav__close {
+  color: var(--white-color)
+}
+
+.nav__title {
+  font-size: var(--h2-font-size);
+  position: relative;
+  width: max-content;
+  margin: 0 auto 3rem;
+}
+
+.nav__title::after,
+.nav__title::before {
+  content: '';
+  width: 40px;
+  height: 1px;
+  background-color: var(--text-color-light);
+  position: absolute;
+  top: 50%;
+  left: -4rem;
+}
+
+.nav__title::before {
+  left: initial;
+  right: -4rem;
+}
+
+.nav__list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2.5rem;
+}
+
+.nav__link {
+  position: relative;
+  color: var(--text-color-light);
+  font-size: var(--h4-font-size);
+  font-weight: var(--font-semi-bold);
+  transition: color .3s;
+}
+
+.nav__link::after {
+  content: '';
+  width: 0;
+  height: 2px;
+  background-color: var(--white-color);
+  position: absolute;
+  left: 0;
+  bottom: -.5rem;
+  transition: width .6s;
+}
+
+.nav__link:hover {
+  color: var(--white-color)
+}
+
+.nav__link:hover::after {
+  width: 85%;
+}
+
+.nav__close {
+  position: absolute;
+  font-size: 1.5rem;
+  top: 1rem;
+  right: 1.5rem;
+  cursor: pointer;
+}
+
+.show-menu {
+  top: 0;
+}
+
+.shadow-header {
+  box-shadow: 0 1px 16px hsla(0, 0%, 0%, .12);
+}
+
+.active-link {
+  color: var(--white-color);
+}
+
+.active-link::after {
+  width: 20%;
+}
+
+/*home*/
+
+.home__container {
+  padding-top: 2rem;
+}
+
+.home__name {
+  font-size: var(--biggest-font-size);
+  text-align: center;
+}
+
+.home__perfil {
+  position: relative;
+  justify-self: center;
+}
+
+.home__image {
+  width: 220px;
+}
+
+.home__social {
+  height: max-content;
+  position: absolute;
+  right: -3rem;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+  display: grid;
+  row-gap: 1rem;
+}
+
+.home__social-link {
+  color: var(--black-color);
+  font-size: 1.25rem;
+  transition: transform 0.5s ease;
+  padding: 3px;
+
+  background: linear-gradient(-90deg,
+      hsla(14, 78%, 56%, 0.3),
+      hsla(14, 98%, 50%, 0));
+
+}
+
+.home__social-link:hover {
+  transform: scale(1.2);
+}
+
+.home__info {
+  margin-top: 4rem;
+}
+
+.home__description {
+  text-align: center;
+  color: var(--title-color);
+  margin-bottom: 1.5rem;
+}
+
+.home__description b {
+  padding-left: 3px;
+  border-radius: 2px;
+  background: linear-gradient(90deg,
+      hsla(14, 78%, 56%, 0.3),
+      hsla(14, 98%, 50%, 0));
+}
+
+
+
+.home__mause {
+
+  margin: 0 auto;
+  color: var(--black-color-light);
+  width: 48px;
+  height: 48px;
+  font-size: 3rem;
+
+  
+}
+
+
+
