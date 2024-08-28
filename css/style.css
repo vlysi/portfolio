@@ -10,7 +10,6 @@
   --text-color: hsl(0, 0%, 35%);
   --text-color-light: hsl(0, 0%, 64%);
   --body-color: hsl(10, 8%, 87%);
-  /* --container-color: hsl(0, 0%, 83%); */
   --container-color: hsl(10, 8%, 83%);
 
   --body-font: "Bai Jamjuree", sans-serif;
@@ -114,15 +113,10 @@ img {
 
   background: linear-gradient(
     to right,
-    hsla(14, 98%, 50%, 0),   /* Transparente desde el lado izquierdo */
-    hsla(14, 79%, 56%, 0.4), /* Color sólido en el centro */
-    hsla(14, 98%, 50%, 0)    /* Transparente hacia el lado derecho */
+    hsla(14, 98%, 50%, 0), 
+    hsla(14, 79%, 56%, 0.4), 
+    hsla(14, 98%, 50%, 0)    
   );
- 
-
-  /* background: linear-gradient(90deg,
-      hsla(14, 79%, 56%, 0.4),
-      hsla(14, 98%, 50%, 0)); */
 }
 
 .section__title-2::after {
@@ -271,8 +265,8 @@ img {
 .home {
   background: linear-gradient(
       180deg,
-      hsl(10, 8%, 87%) 0%,    /* Color inicial en la parte superior */
-      hsl(10, 8%, 83%) 100%   /* Color final en la parte inferior */
+      hsl(10, 8%, 87%) 0%,  
+      hsl(10, 8%, 83%) 100%  
     )
 }
 
@@ -353,9 +347,9 @@ img {
   align-items: center;
   justify-content: center;
   column-gap: .5rem;
-  background-color: var(--black-color);
-  padding: 1.1rem 1.5rem;
-  color: var(--white-color);
+  /* background-color: var(--black-color); */
+  padding: 1rem 1rem;
+  color: var(--black-color);
   font-weight: var(--font-medium);
   transition:  transform .6s;;
 }
@@ -374,10 +368,10 @@ img {
 
 .skills__container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Dos columnas de igual tamaño */
-  gap: 1rem; /* Espacio entre las columnas */
-  justify-items: center; /* Centra horizontalmente cada item en su columna */
-  align-items: center; /* Centra verticalmente cada item en su columna */
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 1rem; 
+  justify-items: center; 
+  align-items: center; 
   background-color: var(--body-color);
 }
 
@@ -389,17 +383,17 @@ img {
   flex-direction: column;
   text-align: center;
 
-  border: 2px solid #42ADE9; /* Borde de 2px de ancho con color principal */
-  padding: 0.5rem 1rem; /* Ajuste del padding para que no haya mucho espacio extra */
-  margin: 0.5rem; /* Margen para que los bordes no estén pegados entre sí */
-  width: fit-content; /* Ajusta el ancho al contenido */
-  border-radius: 8px; /* Bordes redondeados para un aspecto más suave */
-  transition: border-color 0.4s; /* Transición suave en cambios de color */
+  border: 2px solid #42ADE9;
+  padding: 0.5rem 1rem; 
+  margin: 0.5rem; 
+  width: fit-content; 
+  border-radius: 8px; 
+  transition: border-color 0.4s; 
 }
 
 .skills__icon {
-  font-size: 3rem; /* Ajusta el tamaño del icono */
-  color: #42ADE9; /* Asegúrate de que el color del icono coincida con el estilo deseado */
+  font-size: 3rem; 
+  color: #42ADE9; 
 }
 
 /*projects*/
@@ -426,9 +420,14 @@ img {
 
 .projects__button {
   position: absolute;
-  right: 1rem;
-  bottom: -1.5rem;
-  padding: 1rem;
+  right: -1.5rem;
+  bottom: -.7rem;
+  padding: .75rem;
+  background: rgba(255, 255, 255, 0.2); /* Color de desenfoque blanco con transparencia */
+  backdrop-filter: blur(10px); /* Aplica el desenfoque */
+  z-index: 1; /* Asegura que el desenfoque esté por encima del fondo */
+  border: 2px solid var(--black-color);
+  border-radius: 33%;
 }
 
 .projects__content {
@@ -444,6 +443,7 @@ img {
   display: flex;
   align-items: center;
   column-gap: 1rem;
+  
 }
 
 .projects__link {
@@ -470,19 +470,18 @@ img {
 /*contact*/
 .contact {
   padding-bottom: 0;
-  /* background-color: var(--container-color); */
  background: linear-gradient(
       180deg,
-      hsl(10, 8%, 83%) 10.42%,  /* Gris especificado */
-      rgba(255, 255, 255, 0) 50.52%, /* Transparente en el centro */
-      hsl(0, 0%, 83%) 90.1%  /* Gris especificado */
+      hsl(10, 8%, 83%) 10.42%, 
+      rgba(255, 255, 255, 0) 50.52%, 
+      hsl(0, 0%, 83%) 90.1%  
     ),
-    linear-gradient(0deg, rgba(204, 204, 204, 0.3), rgba(204, 204, 204, 0.3)), /* Gris claro con 30% de transparencia */
+    linear-gradient(0deg, rgba(204, 204, 204, 0.3), rgba(204, 204, 204, 0.3)), 
     url('/img/1697617738171.jpg'), #e2e0e0;
   
-    background-position: center; /* Centra la imagen */
-    background-repeat: no-repeat; /* Evita que la imagen se repita */
-    background-size: cover; /* Hace que la imagen cubra todo el contenedor */
+    background-position: center;
+    background-repeat: no-repeat; 
+    background-size: cover; 
 }
 
 .contact__container {
@@ -581,9 +580,9 @@ img {
   color: var(--black-color);
   background: linear-gradient(
         to right,
-        hsla(14, 98%, 50%, 0),   /* Transparente desde el lado izquierdo */
-        hsla(14, 78%, 56%, 0.3), /* Color sólido en el centro */
-        hsla(14, 98%, 50%, 0)    /* Transparente hacia el lado derecho */
+        hsla(14, 98%, 50%, 0), 
+        hsla(14, 78%, 56%, 0.3), 
+        hsla(14, 98%, 50%, 0)    
     );  
 }
 
@@ -606,7 +605,6 @@ img {
 }
 
 .footer {
-  /* background-color: var(--black-color); */
   background-color: #575555;
   color: var(--body-color);
   
@@ -776,7 +774,7 @@ img {
   }
 
   .projects__button {
-    right: 1.25rem;
+    right: -.98rem;
   }
 
   .contact__container {
