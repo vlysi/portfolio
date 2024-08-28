@@ -347,7 +347,6 @@ img {
   align-items: center;
   justify-content: center;
   column-gap: .5rem;
-  /* background-color: var(--black-color); */
   padding: 1rem 1rem;
   color: var(--black-color);
   font-weight: var(--font-medium);
@@ -423,9 +422,9 @@ img {
   right: -1.5rem;
   bottom: -.7rem;
   padding: .75rem;
-  background: rgba(255, 255, 255, 0.2); /* Color de desenfoque blanco con transparencia */
-  backdrop-filter: blur(10px); /* Aplica el desenfoque */
-  z-index: 1; /* Asegura que el desenfoque esté por encima del fondo */
+  background: rgba(255, 255, 255, 0.2); 
+  backdrop-filter: blur(10px); 
+  z-index: 1;
   border: 2px solid var(--black-color);
   border-radius: 33%;
 }
@@ -604,11 +603,31 @@ img {
   left: 0;
 }
 
+/*footer*/
+
 .footer {
   background-color: #575555;
   color: var(--body-color);
+  padding-block: 3rem;
   
 }
+
+.footer__social {
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.footer__social-link {
+  font-size: 1.6rem;
+  color: var(--body-color);
+}
+
+.footer__social-link:hover {
+  color: hsla(14, 78%, 56%, 0.8);
+}
+
 
 @media screen and (max-width: 340px) {
   .container {
@@ -825,8 +844,5 @@ img {
     bottom: -2.5rem;
   }
 
-  .footer__container {
-    padding-block: 3rem;
-  }
-
+  
 }
